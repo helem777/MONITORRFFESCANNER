@@ -7,6 +7,14 @@
     <meta name="Description" content="Set your baud speed and hit connect. A serial terminal that runs without any plugins in Chrome.">
 
     <style>
+  body {
+            background: url('fondo1.jpg') no-repeat 100% top fixed;
+            background-size: 100%;
+            font-family: monospace;
+            background-color: #352e2e;
+            color: rgb(60, 255, 1);
+        }
+
         * {
             background-color: #352e2e;
             font-family: monospace;
@@ -62,11 +70,12 @@
     </style>
 </head>
 <body> 
+
           <!-- titulo monitor -->
       <input type="button" value="Monitor Serial Tecnovenz" style="font-size: 20px; padding: 3px 535px; border: 2px solid #FFFF00;">
 
  <!-- Botones principales -->
-    <button class="active" onclick="location.href='login.html'">Cerrar sesión &#128435;</button>
+    <button class="active" onclick="location.href='index.html'">Cerrar sesión &#128435;</button>
     <button onclick="serialResultsDiv.innerHTML = ''">Clear</button>
     <button onclick="saveToFile()">Guardar en archivo</button>
 
@@ -133,8 +142,8 @@
     <script>
 
      // Redirige al login si no está autenticado
-  if (!localStorage.getItem('loggedIn')) {
-    window.location.href = 'login.html';
+    if (!localStorage.getItem('loggedIn')) {
+    window.location.href = 'index.html';
   }
 
         var port, textEncoder, writableStreamClosed, writer, historyIndex = -1;
