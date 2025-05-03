@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a la Aplicación</title>
+    <style>
+        body {
+           background: url('fondo.jpg') no-repeat 100% top fixed;
+           background-size: 100%;
+            font-family: monospace;
+            background-color: #352e2e;
+            color: rgb(60, 255, 1);
+        }
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #FFFF00;
+            background-color: rgb(85, 85, 85);
+            text-align: center;
+        }
+        input[type="text"], input[type="password"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #696;
+            background-color: rgb(102, 86, 86);
+            color: rgb(179, 255, 179);
+        }
+        button {
+            background-color: rgb(85, 85, 85);
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            color: rgb(60, 255, 1);
+            cursor: pointer;
+            
+        }
+
+  .redes-sociales {margin-top: 20px;display: flex; justify-content: center;gap: 15px;}
+        .redes-sociales img { width: 30px; margin-right: 10px; }
+        .redes-sociales img:hover { transform: scale(1.2);}
+    </style>
+</head>
+<body>
+
+    <!-- Formulario de Login -->
+    <div id="loginForm">
+        <h2>Acceder a la Aplicación</h2>
+        <input type="text" id="username" placeholder="Usuario" />
+        <input type="password" id="password" placeholder="Contraseña" />
+        <button onclick="login()">Iniciar Sesión</button>
+    </div>
+   <div class="redes-sociales">
+    <a href="https://www.instagram.com/tecnovenz/" target="_blank" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://www.youtube.com/@tecnovenz" target="_blank" title="YouTube"><img src="youtube.png" alt="YouTube"></a>
+                <a href="https://www.tiktok.com/@tecnovenz" target="_blank" title="TikTok"><img src="tiktok.png" alt="TikTok"></a>
+                <a href="https://wa.me/message/TNQ3BFLLWNALH1" target="_blank" title="whatsapp"><img src="whatsapp.png" alt="whatsapp"></a>
+</div>
+    <script>
+        // Lista de usuarios y contraseñas (Puedes agregar más usuarios aquí)
+        const users = [
+            { username: "t7", password: "123" },
+            { username: "moises", password: "123" },
+            { username: "gregory", password: "123" },
+             { username: "david", password: "1234" },
+            { username: "juan", password: "12345" },
+            { username: "luis", password: "123456" },
+        ];
+
+        // Función de login
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Verificar si las credenciales son correctas
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                // Si el login es exitoso, redirigir al archivo monitorserial.html
+               localStorage.setItem('loggedIn', 'true');
+              window.location.href = 'monitorserial.html';
+            } else {
+                // Si las credenciales no son correctas, mostrar un mensaje
+                alert("Usuario o contraseña incorrectos.");
+            }
+        }
+    </script>
+
+</body>
+</html>
